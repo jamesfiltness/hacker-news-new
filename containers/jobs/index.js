@@ -1,10 +1,14 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default class Jobs extends React.Component {
    static navigationOptions = () => {
     return {
       title: 'Jobs',
+      tabBarIcon: ({ focused, tintColor }) => {
+        return <Ionicons name="ios-briefcase" size={25} color={tintColor} />;
+      },
     }
   };
   render() {
