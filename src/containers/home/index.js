@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
+import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { someAction } from '../../actions/some-actions';
 
-export default class Home extends React.Component {
+export class Home extends React.Component {
    static navigationOptions = ({ navigation }) => {
     return {
       title: 'Home',
@@ -27,3 +29,18 @@ export default class Home extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    dummy: state.dummy,
+  }
+};
+
+const mapDispatchToProps = {
+  someAction,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);

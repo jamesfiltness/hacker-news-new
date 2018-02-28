@@ -1,21 +1,18 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { HomeStack, JobsStack } from './stacks';
+import { Provider } from 'react-redux';
+import configureStore from './src/store';
+import AppWithNavigationState from './src/navigators/app-navigator';
 
-export default TabNavigator(
-  {
-    Home: { screen: HomeStack },
-    Jobs: { screen: JobsStack },
-  },
-  {
-    tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    },
-    animationEnabled: false,
-    swipeEnabled: false,
+const store = configureStore({});
+
+class HackerNewsReactNative extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppWithNavigationState />
+      </Provider>
+    );
   }
-);
+}
+
+export default HackerNewsReactNative
