@@ -19,6 +19,11 @@ export default class Details extends React.Component {
      },
    }
  };
+
+ componentDidMount() {
+   console.log('DETAILS COMPONENT');
+ }
+
   render() {
     console.log(this.props);
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { someAction } from '../../actions/some-actions';
+import { topStories } from '../../actions/top-stories';
 
 export class Home extends React.Component {
    static navigationOptions = ({ navigation }) => {
@@ -14,7 +14,13 @@ export class Home extends React.Component {
     }
   };
 
+  componentDidMount() {
+    this.props.topStoriesAction();
+  }
+
   render() {
+    console.log('top stories', this.props.topStories);
+
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Home!</Text>
@@ -29,12 +35,12 @@ export class Home extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    dummy: state.dummy,
+    topStories: state.topStories,
   }
 };
 
 const mapDispatchToProps = {
-  someAction,
+  topStoriesAction: topStories,
 };
 
 export default connect(

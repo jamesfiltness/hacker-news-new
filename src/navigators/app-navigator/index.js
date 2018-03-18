@@ -28,6 +28,10 @@ export const AppNavigator = TabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
           return <Ionicons name="ios-information-circle" size={25} color={tintColor} />;
       },
+      tabBarOnPress: (navigation) => {
+        console.log('test tab bar press overview', navigation);
+        navigation.jumpToIndex(navigation.scene.index);
+      }
     }
     },
     Jobs: {
@@ -38,6 +42,10 @@ export const AppNavigator = TabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
           return <Ionicons name="ios-briefcase" size={25} color={tintColor} />;
       },
+      tabBarOnPress: (navigation) => {
+        console.log('test tab bar press overview', navigation);
+        navigation.jumpToIndex(navigation.scene.index);
+      }
     }
     }
   },
