@@ -5,10 +5,14 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './src/reducers';
 import AppWithNavigationState from './src/navigators/app-navigator';
 import { middleware } from './src/utils/redux';
+import fetchMiddleware from './src/redux/middleware/fetch';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(middleware),
+  applyMiddleware(
+    fetchMiddleware,
+    middleware
+  ),
 );
 
 class HackerNewsReactNative extends React.Component {
